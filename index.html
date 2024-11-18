@@ -119,6 +119,15 @@
                 fullscreenButton.onclick = () => {
                   unityInstance.SetFullscreen(1);
                 };
+
+                // URL 매개변수 읽기
+                const urlParams = new URLSearchParams(window.location.search);
+                const room = urlParams.get('room'); 
+                
+                if (room) {
+                  // Unity에 level 값을 전달
+                  unityInstance.SendMessage("GlobalManager", "LoadRoom", room);
+                }
               }).catch((message) => {
                 alert(message);
               });
