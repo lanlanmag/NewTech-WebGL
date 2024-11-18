@@ -126,7 +126,7 @@
                 
                 if (room) {
                   // Unity에 level 값을 전달
-                  unityInstance.SendMessage("GlobalManager", "LoadRoom", room);
+                  unityInstance.SendMessage("GlobalManager", "SetRoom", room);
                 }
               }).catch((message) => {
                 alert(message);
