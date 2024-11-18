@@ -6,9 +6,25 @@
     <title>Unity WebGL Player | ShowRoom</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+    <style>
+      /* 브라우저 창 크기를 꽉 채우기 위한 스타일 */
+      html, body {
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden; /* 스크롤바 제거 */
+      }
+
+      #unityContainer {
+          width: 100%;
+          height: 100%;
+          display: block;
+      }
+    </style>
   </head>
   <body>
-    <div id="unity-container" class="unity-desktop">
+    <div id="unityContainer" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
@@ -103,8 +119,8 @@
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
+        //canvas.style.width = "960px";
+        //canvas.style.height = "600px";
       }
 
       loadingBar.style.display = "block";
