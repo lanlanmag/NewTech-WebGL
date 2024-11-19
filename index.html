@@ -56,6 +56,18 @@
         updateBannerVisibility();
       }
 
+      function sendCurrentUrlToUnity() {
+        const currentUrl = window.location.href;
+        console.log("Current URL: " + currentUrl);
+
+        window.unityInstance.SendMessage("GlobalManager", "ReceiveCurrentUrl", currentUrl);
+      }
+
+      function changePageUrl(newPageUrl) {
+        console.log("Navigating to:", newPageUrl);
+        window.location.href = newPageUrl;
+      }
+
       var buildUrl = "Build";
       var loaderUrl = buildUrl + "/NewTech WebGL.loader.js";
       var config = {
@@ -128,6 +140,10 @@
                   // Unity에 level 값을 전달
                   unityInstance.SendMessage("GlobalManager", "SetRoom", room);
                 }
+
+                //URL 값도 전달
+                sendCurrentUrlToUnity();
+
               }).catch((message) => {
                 alert(message);
               });
