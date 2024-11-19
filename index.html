@@ -56,11 +56,8 @@
         updateBannerVisibility();
       }
 
-      function sendCurrentUrlToUnity() {
-        const currentUrl = window.location.href;
-        console.log("Current URL: " + currentUrl);
-
-        window.unityInstance.SendMessage("GlobalManager", "ReceiveCurrentUrl", currentUrl);
+      function GetBrowserURL() {
+        return window.location.href;
       }
 
       function changePageUrl(newPageUrl) {
