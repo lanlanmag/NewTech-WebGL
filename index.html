@@ -56,10 +56,6 @@
         updateBannerVisibility();
       }
 
-      function getBrowserURL() {
-        return window.location.href;
-      }
-
       function changePageUrl(newPageUrl) {
         console.log("Navigating to:", newPageUrl);
         window.location.href = newPageUrl;
@@ -137,6 +133,10 @@
                   // Unity에 level 값을 전달
                   unityInstance.SendMessage("GlobalManager", "SetRoom", room);
                 }
+
+                var url = window.location.href; // 브라우저의 현재 URL 가져오기
+                unityInstance.SendMessage("GlobalManager", "SetBrowserURL", url);
+
 
               }).catch((message) => {
                 alert(message);
